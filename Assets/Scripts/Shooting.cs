@@ -8,13 +8,7 @@ public class Shooting : MonoBehaviour
     public GameObject laserPrefab;
 
     public float laserForce = 20f;
-
-    /*
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }*/
+   
 
     // Update is called once per frame
     void Update()
@@ -24,6 +18,7 @@ public class Shooting : MonoBehaviour
             Shoot();
         }
 
+
     }
 
     void Shoot()
@@ -31,7 +26,6 @@ public class Shooting : MonoBehaviour
         GameObject laser = Instantiate(laserPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = laser.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.right * laserForce, ForceMode2D.Impulse);
-
     }
     
 
