@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,9 @@ public class Shooting : MonoBehaviour
     public GameObject laserPrefab;
 
     public float laserForce = 20f;
-   
+
+    public AudioSource audioSource;
+    public AudioClip shootSound;
 
     // Update is called once per frame
     void Update()
@@ -24,7 +26,10 @@ public class Shooting : MonoBehaviour
         GameObject laser = Instantiate(laserPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = laser.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.right * laserForce, ForceMode2D.Impulse);
-        //rb.velocity = new Vector2(firePoint.right * laserForce,0);
+
+
+        // Play laser sound
+        audioSource.PlayOneShot(shootSound, 0.5f);        
     }
     
 
