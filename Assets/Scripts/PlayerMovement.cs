@@ -21,15 +21,26 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement.y = 100+ Input.GetAxisRaw("Vertical");
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        
     }
 
     void FixedUpdate()
     {
-        Vector2 lookDirection = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 20f;
+        Vector2 fixedMousePos;
+        fixedMousePos.x = mousePos.x;
+        fixedMousePos.y = mousePos.y-0.42f;
+
+        Vector2 lookDirection = fixedMousePos - rb.position;
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
+
+        /*
+        Vector2 lookDirection = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        rb.rotation = angle;
+        */
     }
 
 
