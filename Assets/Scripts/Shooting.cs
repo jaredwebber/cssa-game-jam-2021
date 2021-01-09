@@ -17,8 +17,6 @@ public class Shooting : MonoBehaviour
         {
             Shoot();
         }
-
-
     }
 
     void Shoot()
@@ -26,6 +24,7 @@ public class Shooting : MonoBehaviour
         GameObject laser = Instantiate(laserPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = laser.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.right * laserForce, ForceMode2D.Impulse);
+        //rb.velocity = new Vector2(firePoint.right * laserForce,0);
     }
     
 
