@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class BGscroll : MonoBehaviour
 {
-    private float length, startpos, time;
+    private float length, startpos, time, speed;
     public GameObject cam;
-    public float speed;
     
     // Start is called before the first frame update
     void Start()
     {
+        speed = 0.01f;
         startpos = transform.position.x;
         length = GetComponent<SpriteRenderer>().bounds.size.x;
         time = 0;
