@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7690261103340044593}
   - component: {fileID: 302333387983341670}
   - component: {fileID: -1269150394467884556}
+  - component: {fileID: -5816250620337799484}
   m_Layer: 10
   m_Name: laser
   m_TagString: Untagged
@@ -143,3 +144,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78fe91fc18dc3471d94831fc5993152f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &-5816250620337799484
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4150924009351100484}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6711be402b4864b87864af5b01cf0012, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

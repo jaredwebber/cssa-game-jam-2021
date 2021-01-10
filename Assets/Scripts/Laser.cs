@@ -5,18 +5,20 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     private Vector3 screenBounds;
+    private Animator animator;
 
     void Start()
     {
-
+        animator = gameObject.GetComponent<Animator>();
+        animator.SetBool("laser_hit", false);
         gameObject.name = "LASER";
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-       //check if its a enemy collision or platform?
-        Destroy(gameObject);
+        animator.SetBool("laser_hit", true);
+        //Destroy(gameObject);
     }
 
     void Update(){
