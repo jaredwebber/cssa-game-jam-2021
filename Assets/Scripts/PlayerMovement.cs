@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 mousePos;
 
     private float jumpSpeed;
+    private int collisionCount;
 
 
     // Update is called once per frame
@@ -38,10 +39,32 @@ public class PlayerMovement : MonoBehaviour
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
 
+        if (collisionCount > 0)
+            rb.gravityScale = 0;
+        else
+            rb.gravityScale = 2;
+
         
         rb.MovePosition(rb.position + movement * jumpSpeed * Time.fixedDeltaTime);
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "platform")
+        {
+            collisionCount++;
+            Debug.Log(collisionCount);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "platform")
+        {
+            collisionCount--;
+            Debug.Log(collisionCount);
+        }
+    }
 
 }
 

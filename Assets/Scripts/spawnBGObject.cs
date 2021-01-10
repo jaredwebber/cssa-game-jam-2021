@@ -10,7 +10,7 @@ public class spawnBGObject : MonoBehaviour
     private GameObject[] prefabs;
 
     private Vector2 screenBounds;
-    public float respawnTime = 2.0f;
+    public float BGRespawnTime = 2.0f;
     int whichObject;
     
 
@@ -34,9 +34,8 @@ public class spawnBGObject : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(respawnTime);
+            yield return new WaitForSeconds(BGRespawnTime);
             spawnObject();
         }
-
     }
 }

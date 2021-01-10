@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 800984350}
   - component: {fileID: 800984354}
   - component: {fileID: 800984355}
+  - component: {fileID: 800984356}
   m_Layer: 10
   m_Name: shark
   m_TagString: Untagged
@@ -300,7 +301,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &800984352
 SpriteRenderer:
@@ -404,12 +405,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &1195892856
-GameObject:
+--- !u!58 &800984356
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800984349}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.84
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1195892858}
@@ -870,7 +881,7 @@ MonoBehaviour:
   prefab13: {fileID: 8575901862427919550, guid: b444eb23b38998a45a95886dd069095b,
     type: 3}
   prefab14: {fileID: 178955443663948392, guid: a31460ccaa3b9824485c6fe03d7a8e69, type: 3}
-  respawnTime: 2
+  BGRespawnTime: 2
 --- !u!114 &1983195280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,4 +901,4 @@ MonoBehaviour:
   endPlatform: {fileID: 3528728356858060653, guid: c473045cf2619b043ae06f22b0edd7ad,
     type: 3}
   shark: {fileID: 800984349}
-  respawnTime: 2
+  PFrespawnTime: 0

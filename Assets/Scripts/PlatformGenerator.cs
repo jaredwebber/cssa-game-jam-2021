@@ -13,27 +13,28 @@ public class PlatformGenerator : MonoBehaviour
     private Vector2 screenBounds;
     private Vector3 offset;
 
-    public float respawnTime = 2.0f;
+    public float PFrespawnTime = 0.0f;
     int whichObject;
 
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(PFWave());
+
         offset = new Vector3(3, 0, 0);
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         Vector3 sharkPos = shark.transform.position;
         GameObject start = Instantiate(startPlatform) as GameObject;
         start.transform.position = sharkPos;
-        GameObject middle1 = Instantiate(middlePlatform) as GameObject;
-        GameObject middle2 = Instantiate(middlePlatform) as GameObject;
-        GameObject middle3 = Instantiate(middlePlatform) as GameObject;
-        middle1.transform.position = sharkPos + offset;
-        middle2.transform.position = sharkPos + 2*offset;
-        middle3.transform.position = sharkPos + 3*offset;
+        GameObject[] pfs = new GameObject[4];
+        int i = 0;
+        for(; i < pfs.Length; i++)
+        {
+            pfs[i] = Instantiate(middlePlatform) as GameObject;
+            pfs[i].transform.position = sharkPos + ((i + 1) * offset);
+        }
         GameObject end = Instantiate(endPlatform) as GameObject;
-        end.transform.position = sharkPos + 4*offset;
-
-        StartCoroutine(PFWave());
+        end.transform.position = sharkPos + ((i + 1) * offset);
     }
 
     private void spawnPF()
@@ -42,24 +43,24 @@ public class PlatformGenerator : MonoBehaviour
         float y = UnityEngine.Random.Range(-screenBounds.y + 0.1f, screenBounds.y - 0.1f);
         GameObject[] pfs = new GameObject[PFsize + 2];
         pfs[0] = Instantiate(startPlatform) as GameObject;
-        pfs[0].transform.position = new Vector2(screenBounds.x * 1.1f, y);
+        pfs[0].transform.position = new Vector2(screenBounds.x * 1.2f, y);
 
         for (int i = 0; i < PFsize; i++)
         {
             pfs[1 + i] = Instantiate(middlePlatform) as GameObject;
-            pfs[1 + i].transform.position = new Vector2(screenBounds.x * 1.1f + ((1 + i) * offset.x), y);
+            pfs[1 + i].transform.position = new Vector2(screenBounds.x * 1.2f + ((1 + i) * offset.x), y);
         }
         pfs[PFsize + 1] = Instantiate(endPlatform) as GameObject;
-        pfs[PFsize + 1].transform.position = new Vector2(screenBounds.x * 1.1f + ((PFsize + 1) * offset.x), y);
+        pfs[PFsize + 1].transform.position = new Vector2(screenBounds.x * 1.2f + ((PFsize + 1) * offset.x), y);
 
-        respawnTime = (7 * PFsize) + (UnityEngine.Random.Range(-2, 2));
+        PFrespawnTime = (3*(PFsize + 2)) + (UnityEngine.Random.Range(-2, 2));
     }
 
     IEnumerator PFWave()
     {
         while (true)
         {
-            yield return new WaitForSeconds(respawnTime);
+            yield return new WaitForSeconds(PFrespawnTime);
             spawnPF();
         }
 
