@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 jump;
     private int collisionCount;
     private Vector2 screenBounds;
+    private bool canJump = false;
+    private bool notOnCooldown = true;
 
     // Update is called once per frame
 
@@ -22,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
-        jumpSpeed = 2.0f;
+        jumpSpeed = 4.0f;
         jump = new Vector2(0f, 10.0f);
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
@@ -33,10 +35,11 @@ public class PlayerMovement : MonoBehaviour
 
         movement.y = Input.GetAxisRaw("Vertical");
 
+        /*
         if(collisionCount > 0 && Input.GetKeyDown(KeyCode.UpArrow))
         {
             rb.AddForce(jump * jumpSpeed, ForceMode2D.Impulse);
-        }
+        }*/
 
         if (transform.position.y < -screenBounds.y)
             SceneManager.LoadScene("EndGame");
@@ -52,12 +55,17 @@ public class PlayerMovement : MonoBehaviour
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
 
-        if (collisionCount > 0)
+        if (collisionCount > 0 || (canJump && notOnCooldown))
+        {
             rb.gravityScale = 0;
-        else
+            rb.MovePosition(rb.position + movement * jumpSpeed * Time.fixedDeltaTime);
+        }            
+        else{
             rb.gravityScale = 9.8f;
+            rb.MovePosition(rb.position + movement * jumpSpeed/6 * Time.fixedDeltaTime);
+        }
 
-        rb.MovePosition(rb.position + movement * jumpSpeed * Time.fixedDeltaTime);
+            
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -75,7 +83,23 @@ public class PlayerMovement : MonoBehaviour
         {
             collisionCount--;
             Debug.Log(collisionCount);
+            StartCoroutine(wasSwimming());
         }
+    }
+
+    IEnumerator wasSwimming()
+    {
+        canJump = true;
+        yield return new WaitForSeconds(0.6f);
+        canJump = false;
+        StartCoroutine(startCooldown());
+    }
+
+     IEnumerator startCooldown()
+    {
+        notOnCooldown = false;
+        yield return new WaitForSeconds(2f);
+        notOnCooldown = true;
     }
 
 }
