@@ -6,22 +6,19 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    public string newGameScene;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void newGame()
     {
-        SceneManager.LoadScene(newGameScene);
+        SceneManager.LoadScene("SideScroll");
+    }
+
+    public void openLore()
+    {
+        SceneManager.LoadScene("Lore");
+    }
+
+    public void returnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void quitGame()
