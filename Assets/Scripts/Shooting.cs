@@ -12,13 +12,18 @@ public class Shooting : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip shootSound;
 
-    // Update is called once per frame
+    const int COOLDOWN_TICKS = 90;
+    static int fireCooldown = 0;
+
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1") && fireCooldown == 0)
         {
+            fireCooldown = COOLDOWN_TICKS;
             Shoot();
         }
+
+        if (fireCooldown > 0) fireCooldown--;
     }
 
     void Shoot()
