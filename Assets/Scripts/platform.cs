@@ -12,7 +12,7 @@ public class platform : MonoBehaviour
     void Start()
     {
 
-        speed = 1;
+        speed = 3.5f;
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
         rb = this.GetComponent<Rigidbody2D>();

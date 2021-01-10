@@ -9,6 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/SideScroll.unity
     guid: 89d62b1599ecc774f9b8d11d79d6d0ec
   - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 36c28abbb1ac3914480a45e0e1dfe80c
     path: Assets/Scenes/MainMenu.unity
     guid: e3d574f1159304aeb98ce421d2813cba
   m_configObjects: {}
