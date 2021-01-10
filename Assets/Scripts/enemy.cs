@@ -34,7 +34,7 @@ public class enemy : MonoBehaviour
     {         
         if(collision.collider.name == "LASER")
         {
-            audioSource.PlayOneShot(deathSound, 0.7f);
+            audioSource.PlayOneShot(deathSound, 0.5f);
             this.enemyBody.constraints = RigidbodyConstraints2D.FreezePositionY;
             this.enemyBody.constraints = RigidbodyConstraints2D.FreezePositionX;
             this.enemyBody.constraints = RigidbodyConstraints2D.FreezeRotation;

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,14 +12,18 @@ public class PlayerMovement : MonoBehaviour
     Vector2 mousePos;
 
     private float jumpSpeed;
+    private Vector2 jump;
     private int collisionCount;
-
+    private Vector2 screenBounds;
 
     // Update is called once per frame
 
     void Start()
     {
-        jumpSpeed = 4f;
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+
+        jumpSpeed = 2.0f;
+        jump = new Vector2(0f, 10.0f);
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
     }
@@ -27,6 +32,14 @@ public class PlayerMovement : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         movement.y = Input.GetAxisRaw("Vertical");
+
+        if(collisionCount > 0 && Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            rb.AddForce(jump * jumpSpeed, ForceMode2D.Impulse);
+        }
+
+        if (transform.position.y < -screenBounds.y)
+            SceneManager.LoadScene("EndGame");
     }
 
     void FixedUpdate()
@@ -42,9 +55,8 @@ public class PlayerMovement : MonoBehaviour
         if (collisionCount > 0)
             rb.gravityScale = 0;
         else
-            rb.gravityScale = 2;
+            rb.gravityScale = 9.8f;
 
-        
         rb.MovePosition(rb.position + movement * jumpSpeed * Time.fixedDeltaTime);
     }
 

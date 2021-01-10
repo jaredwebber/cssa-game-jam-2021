@@ -5,7 +5,7 @@ using UnityEngine;
 public class spawnDrops : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public float respawnTime = 1.0f;
+    public float respawnTime = 0.2f;
     private Vector2 screenBounds;
 
     // Start is called before the first frame update
@@ -18,7 +18,7 @@ public class spawnDrops : MonoBehaviour
     private void spawnEnemy()
     {
         GameObject a = Instantiate(enemyPrefab) as GameObject;
-        a.transform.position = new Vector2(Random.Range(0, screenBounds.x), screenBounds.y * 1.5f);
+        a.transform.position = new Vector2(Random.Range((3 * screenBounds.x / 4) * 1.5f, screenBounds.x * 2.5f), screenBounds.y * 1.5f);
     }
 
     IEnumerator enemyWave()

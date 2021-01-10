@@ -12,7 +12,7 @@ public class Shooting : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip shootSound;
 
-    const int COOLDOWN_TICKS = 90;
+    const int COOLDOWN_TICKS = 60;
     static int fireCooldown = 0;
 
     void Update()

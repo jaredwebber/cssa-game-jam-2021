@@ -53,7 +53,7 @@ public class PlatformGenerator : MonoBehaviour
         pfs[PFsize + 1] = Instantiate(endPlatform) as GameObject;
         pfs[PFsize + 1].transform.position = new Vector2(screenBounds.x * 1.2f + ((PFsize + 1) * offset.x), y);
 
-        PFrespawnTime = (3*(PFsize + 2)) + (UnityEngine.Random.Range(-2, 2));
+        PFrespawnTime = (1.5f*(PFsize + 2)) + (UnityEngine.Random.Range(-1, 1));
     }
 
     IEnumerator PFWave()
