@@ -27,7 +27,7 @@ public class spawnBGObject : MonoBehaviour
         whichObject = UnityEngine.Random.Range(0, 13);
 
         GameObject a = Instantiate(prefabs[whichObject]) as GameObject;
-        a.transform.position = new Vector2(screenBounds.x * 1.5f, UnityEngine.Random.Range(-screenBounds.y, screenBounds.y));
+        a.transform.position = new Vector2(screenBounds.x * 2f, UnityEngine.Random.Range(-screenBounds.y, screenBounds.y));
     }
 
     IEnumerator BGWave()

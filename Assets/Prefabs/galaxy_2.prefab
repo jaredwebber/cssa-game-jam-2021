@@ -117,3 +117,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  spinLimit: 0.001
+  sizeLimit: 0
