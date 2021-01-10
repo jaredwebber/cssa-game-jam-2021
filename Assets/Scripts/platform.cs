@@ -17,8 +17,6 @@ public class platform : MonoBehaviour
 
         rb = this.GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(-speed, 0);
-
-        //Physics.IgnoreCollision(enemy.GetComponent<Collider>(), GetComponent<Collider>());
     }
 
     // Update is called once per frame
@@ -29,8 +27,5 @@ public class platform : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-        //position.x -= speed;
-
     }
 }

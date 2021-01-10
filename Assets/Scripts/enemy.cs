@@ -36,13 +36,29 @@ public class enemy : MonoBehaviour
             this.enemyBody.constraints = RigidbodyConstraints2D.FreezeRotation;
             this.enemyBody.gravityScale = 0;
             this.enemyBody.mass = 99999999;//makes inertia/momentum of lazer shot inconsequential
-            
-            animator.SetBool("enemyDeath", true);            
-            //Destroy(gameObject);
-            //makePlatform();
+            StartCoroutine(startScalingEnemy());
         }
             
     }
+
+
+    IEnumerator startScalingEnemy()
+    {
+        animator.SetBool("enemyDeath", true); 
+        Vector3 max = this.enemyBody.transform.localScale *4.5f;
+        Vector3 scale  = this.enemyBody.transform.localScale;
+        Vector3 add = new Vector3(0.08f,0.08f,0.08f);
+        while(scale.x<=max.x)
+        {
+            this.enemyBody.transform.localScale = scale;
+            scale += add;
+            yield return new WaitForSeconds(0.05f);
+        }
+        Destroy(gameObject);
+        makePlatform();
+    }
+    
+     
 
     // Update is called once per frame
     void Update()

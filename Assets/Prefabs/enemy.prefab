@@ -123,7 +123,6 @@ MonoBehaviour:
   speed: 10
   platformPrefab: {fileID: 5698090753186038090, guid: 87bcbccbca9f14343af39689e957577d,
     type: 3}
-  animator: {fileID: 0}
 --- !u!61 &730949360564161776
 BoxCollider2D:
   m_ObjectHideFlags: 0
