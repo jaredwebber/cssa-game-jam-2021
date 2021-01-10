@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 599157766257024872}
   - component: {fileID: 599157766257024874}
   - component: {fileID: 599157766257024855}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: asteroid_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 6f71663d59b2142fab2ca8db7f27ff2d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
