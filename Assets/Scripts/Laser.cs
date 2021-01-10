@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-
-    public Vector3 screenBounds;
+    private Vector3 screenBounds;
 
     void Start()
     {
+
+        gameObject.name = "LASER";
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //kill enemy & spawn platform?
+       //check if its a enemy collision or platform?
+        Destroy(gameObject);
     }
 
     void Update(){
