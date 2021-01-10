@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class BGscroll : MonoBehaviour
 {
-    private float length, startpos, time, speed;
+    private float length, startpos, time;
+    public float speed;
     public GameObject cam;
     
     // Start is called before the first frame update

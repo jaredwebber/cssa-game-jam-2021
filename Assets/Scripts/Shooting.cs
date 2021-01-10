@@ -19,8 +19,6 @@ public class Shooting : MonoBehaviour
         {
             Shoot();
         }
-
-
     }
 
     void Shoot()
@@ -28,6 +26,7 @@ public class Shooting : MonoBehaviour
         GameObject laser = Instantiate(laserPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = laser.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.right * laserForce, ForceMode2D.Impulse);
+
 
         // Play laser sound
         audioSource.PlayOneShot(shootSound, 0.5f);        
