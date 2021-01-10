@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5119804878435939483}
   - component: {fileID: 5883658583712183588}
   - component: {fileID: 5981811389359401525}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: constellation_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

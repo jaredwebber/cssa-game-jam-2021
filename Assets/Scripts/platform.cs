@@ -6,15 +6,17 @@ public class platform : MonoBehaviour
 {
     private Vector3 screenBounds;
     private Vector2 position;
+    private Rigidbody2D rb;
     private float speed;
 
     void Start()
     {
 
-        speed = 10;
+        speed = 1;
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        position.x = transform.position.x;
-        position.y = transform.position.y;
+
+        rb = this.GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector2(-speed, 0);
 
         //Physics.IgnoreCollision(enemy.GetComponent<Collider>(), GetComponent<Collider>());
     }
@@ -22,13 +24,13 @@ public class platform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         if (transform.position.x < -screenBounds.x * 1.5 ||
-            transform.position.x >  screenBounds.x * 1.5) 
+         if (transform.position.x < -screenBounds.x * 2 ||
+            transform.position.x >  screenBounds.x * 2) 
         {
             Destroy(this.gameObject);
         }
 
-        position.x -= speed;
+        //position.x -= speed;
 
     }
 }
