@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 800984351}
   - component: {fileID: 800984350}
   - component: {fileID: 800984354}
+  - component: {fileID: 800984355}
   m_Layer: 10
   m_Name: shark
   m_TagString: Untagged
@@ -383,8 +384,27 @@ MonoBehaviour:
   laserPrefab: {fileID: 4150924009351100484, guid: c16f6e937f1924475bff125ee8776328,
     type: 3}
   laserForce: 20
-  audioSource: {fileID: 0}
-  shootSound: {fileID: 0}
+  audioSource: {fileID: 1216023343}
+  shootSound: {fileID: 8300000, guid: 2d199b3aed389e2458fb1d8b04e32075, type: 3}
+--- !u!95 &800984355
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800984349}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d439c202b8c34170805398dbd347455, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1216023342
 GameObject:
   m_ObjectHideFlags: 0
