@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8940893779085303653}
   - component: {fileID: 6386795042583635983}
   - component: {fileID: 8744674363571528057}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: typocat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
