@@ -15,11 +15,14 @@ public class enemy : MonoBehaviour
     private Rigidbody2D enemyBody;
 
     private Animator animator;
+    public AudioSource audioSource;
+    public AudioClip deathSound;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        //audioSource = GetComponent<AudioSource>();
         enemyBody = GetComponent<Rigidbody2D>();
         gameObject.name = "ENEMY";
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
@@ -31,6 +34,7 @@ public class enemy : MonoBehaviour
     {         
         if(collision.collider.name == "LASER")
         {
+            audioSource.PlayOneShot(deathSound, 0.7f);
             this.enemyBody.constraints = RigidbodyConstraints2D.FreezePositionY;
             this.enemyBody.constraints = RigidbodyConstraints2D.FreezePositionX;
             this.enemyBody.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -48,6 +52,7 @@ public class enemy : MonoBehaviour
         Vector3 max = this.enemyBody.transform.localScale *4.5f;
         Vector3 scale  = this.enemyBody.transform.localScale;
         Vector3 add = new Vector3(0.08f,0.08f,0.08f);
+         
         while(scale.x<=max.x)
         {
             this.enemyBody.transform.localScale = scale;
