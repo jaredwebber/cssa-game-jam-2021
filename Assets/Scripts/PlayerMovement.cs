@@ -10,12 +10,6 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     Vector2 mousePos;
 
-    /*
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }*/
 
     // Update is called once per frame
     void Update()
@@ -30,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 fixedMousePos;
         fixedMousePos.x = mousePos.x;
-        fixedMousePos.y = mousePos.y-0.42f;
+        fixedMousePos.y = mousePos.y-0.40f;
 
         Vector2 lookDirection = fixedMousePos - rb.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
